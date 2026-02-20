@@ -1,0 +1,38 @@
+/* ===== BackButton.css – Modern Glass UI ===== */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --glass-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  --text-primary: #0f172a;
+  --transition: all 0.2s ease;
+}
+
+.btn-back {
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: 40px;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--glass-shadow);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-back:hover {
+  background: white;
+  border-color: #cbd5e1;
+  transform: translateX(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+.btn-back:focus-visible {
+  outline: 3px solid rgba(79, 70, 229, 0.3);
+  outline-offset: 2px;
+}
