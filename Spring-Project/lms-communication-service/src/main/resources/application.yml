@@ -1,0 +1,48 @@
+server:
+  port: 8087   # choose any free port
+
+spring:
+  application:
+    name: COMMUNICATION-SERVICE
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/lms_communication?createDatabaseIfNotExist=true
+    username: root
+    password: komal123  # change if your MySQL password is different
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+    properties:
+      hibernate:
+        format_sql: true
+
+  jackson:
+    serialization:
+      indent_output: true
+
+
+# VERY IMPORTANT for large chat messages
+spring.servlet:
+  multipart:
+    max-file-size: 10MB
+    max-request-size: 10MB
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+  instance:
+    prefer-ip-address: true
+
+
+# Helpful for debugging WebSocket
+logging:
+  level:
+    org.springframework.web.socket: DEBUG
+    org.springframework.messaging: DEBUG

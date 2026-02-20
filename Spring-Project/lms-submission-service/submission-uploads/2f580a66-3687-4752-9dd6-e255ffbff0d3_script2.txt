@@ -1,0 +1,175 @@
+Presentation Script – Sprint 1 by Komal Wable
+ 
+ 
+---
+ 
+Opening
+ 
+(Smile and make eye contact)
+“Hello everyone!
+My name is Komal Wable, and today I’m going to talk about a few interesting topics — EdTech, Agile, Problem Solving, and Accessibility.
+ 
+These are all about how technology and teamwork can make learning smarter, faster, and easier for everyone.”
+ 
+(Pause for a second)
+“Let’s begin!”
+ 
+ 
+---
+ 
+Slide 1 – What is EdTech?
+ 
+“First, let’s understand EdTech, which stands for Educational Technology.
+ 
+In simple words, it means using technology — like computers, apps, and the internet — to make learning more effective and fun.
+For example, online classes, learning apps like Byju’s or Coursera, and digital classrooms all come under EdTech.
+ 
+It helps teachers teach better, and students learn in their own way, anytime and anywhere.”
+ 
+ 
+---
+ 
+Slide 2 – SCORM
+ 
+“Next is SCORM.
+You can think of SCORM as a rulebook for e-learning.
+It helps online lessons and quizzes work properly on any platform.
+ 
+So, if a company or school creates one training module, they can easily share it on different systems without rebuilding it.
+It saves time and keeps everything organized.”
+
+articulate story line adobe Adobe Captivate
+ 
+ 
+---
+ 
+Slide 3 – xAPI
+ 
+“Then comes xAPI, also called Experience API.
+This one tracks what a learner does — not just in class, but anywhere.
+ 
+For example, it can record when someone watches a video, completes a quiz, or even learns something on an app.
+All this information goes into a database called the Learning Record Store.
+ 
+This helps teachers and trainers understand each learner’s progress and give them more personalized lessons.”
+ 
+ 
+---
+ 
+Slide 4 – QTI and LTI
+ 
+“Now, let’s talk about QTI and LTI.
+ 
+QTI helps create and share question papers or tests easily between different learning systems.
+So, if a quiz is made in one app, it can be used in another too.
+ 
+LTI connects outside tools — like Zoom, Khan Academy, or Quizlet — directly into a learning platform.
+It’s like plugging in extra tools that make learning more interactive and smooth.”
+ 
+ 
+---
+ 
+Slide 5 – CAT (Computerised adaptive testing)
+ 
+“Next is CAT, which means Computer Assisted Teaching.
+This simply means teachers use computers or digital tools to make lessons easier to understand.
+ 
+For example, using videos, animations, or interactive slides in the classroom helps students stay interested.
+It doesn’t replace teachers — it supports them in teaching better.”
+ 
+ 
+---
+ 
+Slide 6 – Adaptive Learning
+ 
+“Now we have Adaptive Learning — one of my favorite topics!
+This uses AI and data to change lessons based on how well each student is doing.
+ 
+If a student finds something difficult, it gives more practice.
+If they are doing well, it moves them to the next level.
+So everyone learns at their own pace, which is amazing!”
+ 
+ 
+---
+ 
+Slide 7 – Benchmark Overview
+ 
+“Next, let’s look at Benchmark Universe.
+It’s a digital learning platform that helps both teachers and students.
+ 
+Teachers can share eBooks, videos, and tests, and students can do their assignments online.
+The platform also shows reports so teachers can see how each student is improving.
+It’s really helpful for personalized and smart teaching.”
+ 
+ 
+---
+ 
+Slide 8 – Agile
+ 
+“Now let’s move to Agile.
+Agile is a way of managing projects in small, flexible steps.
+Instead of finishing everything at once, teams work in short parts, get feedback, and keep improving.
+ 
+It’s all about teamwork, communication, and learning from experience.”
+ 
+ 
+---
+ 
+Slide 9 – Scrum
+ 
+“Scrum is part of Agile.
+It breaks the work into short time periods called sprints.
+ 
+Each sprint has planning, work, and a review at the end.
+It helps the team stay organized, focused, and ready to adapt if something changes.”
+ 
+ 
+---
+ 
+Slide 10 – Problem Solving
+ 
+“Now let’s talk about Problem Solving.
+ 
+Problem solving is about understanding what the problem really is, thinking of ideas, and finding the best solution.
+We can use different methods like:
+ 
+Brainstorming — sharing ideas together,
+ 
+Asking questions like What, Why, When, Where, Who, and How,
+ 
+Finding the root cause, or
+ 
+Drawing a decision tree to compare choices.
+ 
+ 
+It’s a process of thinking smart and staying calm.”
+ 
+ 
+---
+ 
+Slide 11 – Accessibility
+ 
+“And finally, Accessibility.
+ 
+Accessibility means making sure that everyone — including people with disabilities — can use digital learning tools easily.
+This includes things like captions for videos, screen readers for the blind, and keyboard navigation.
+ 
+The main goal is to make learning open and comfortable for everyone.”
+ 
+ 
+---
+ 
+Closing
+ 
+(Smile and pause slightly)
+“So, to wrap up —
+We learned how EdTech uses technology in education,
+How Agile and Scrum help in teamwork,
+How Problem Solving improves thinking,
+And how Accessibility ensures everyone can learn.
+ 
+Thank you so much for listening!
+I hope you enjoyed and learned something new today.”
+ 
+(Smile, nod, and end confidently)
+ 

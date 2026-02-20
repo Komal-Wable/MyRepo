@@ -1,0 +1,212 @@
+Here’s a **detailed presentation script** for your *Sprint 1* PPT — including explanations for every **slide, picture, and table**. You can speak naturally using this — it’s simple, professional, and suitable for meetings.
+
+---
+
+## 🎤 **Script for Sprint 1 Presentation**
+
+### 🧩 Slide 1: Title – *Overview of EdTech, Benchmark, Agile, Problem Solving, and Accessibility*
+
+**Script:**
+
+> Good morning everyone.
+> I’m Komal Wable, and today I’ll be presenting an overview of five key areas we’ve focused on during Sprint 1 — **EdTech, Benchmark Universe, Agile methodology, Problem-Solving techniques, and Accessibility** in digital learning.
+> Let’s begin with an introduction to EdTech.
+
+---
+
+### 💻 Slide 2: *Introduction to EdTech*
+
+**Script:**
+
+> EdTech stands for **Educational Technology**.
+> It means using technology — like computers, apps, and the internet — to make teaching and learning easier, more interactive, and accessible to everyone.
+> Examples include **Byju’s**, **Coursera**, and **Udemy**, which provide online learning platforms.
+>
+> The picture here shows a **digital classroom setup**, representing how modern education is moving online.
+>
+> In EdTech, certain **standards** are important to ensure everything works together smoothly. These include:
+>
+> * **SCORM** – ensures content works across different LMSs.
+> * **xAPI (Experience API)** – tracks learning experiences.
+> * **QTI** – for sharing and reusing test questions.
+> * **LTI** – connects external tools like Quizlet or Zoom with LMSs.
+
+---
+
+### ⚙️ Slide 3: *SCORM (Sharable Content Object Reference Model)*
+
+**Script:**
+
+> SCORM defines how online learning content and Learning Management Systems communicate.
+> It helps content run properly no matter which LMS you use.
+>
+> For example:
+>
+> * In schools, teachers can share interactive lessons across systems.
+> * For companies, it simplifies **new hire training**, making it trackable and reusable.
+>
+> The diagram here illustrates how SCORM acts as a bridge between **content** and **LMS platforms**.
+
+---
+
+### 📊 Slide 4: *xAPI (Experience API or Tin Can API)*
+
+**Script:**
+
+> xAPI is more advanced than SCORM. It can track learning activities **outside traditional LMS**, like mobile learning or simulations.
+> It uses a database called **LRS – Learning Record Store** to store these records.
+>
+> The picture here shows the flow between learner activities and the LRS.
+>
+> xAPI tracks data in this format:
+> **Actor – Verb – Object**
+> Example: *“Komal completed Sprint 1 training.”*
+
+---
+
+### 🧩 Slide 5: *QTI & LTI Standards*
+
+**Script:**
+
+> **QTI (Question and Test Interoperability)** allows test questions and quizzes to be shared easily between platforms like Moodle and Blackboard.
+> **LTI (Learning Tools Interoperability)** connects third-party tools — for example, you can embed Khan Academy or Zoom directly inside an LMS.
+>
+> The image here shows how LTI links different learning tools under one system, making the process seamless for teachers and learners.
+
+---
+
+### 🧠 Slide 6: *CAT (Computerized Adaptive Testing)*
+
+**Script:**
+
+> CAT adjusts the difficulty of questions based on the student’s performance.
+> For instance, if a student answers correctly, the next question is harder; if wrong, it becomes easier.
+>
+> This makes learning **personalized** and helps identify strengths and weaknesses quickly.
+>
+> The table in this slide summarizes how CAT creates personalized learning paths and efficient skill diagnosis.
+
+---
+
+### 🤖 Slide 7: *Adaptive Learning*
+
+**Script:**
+
+> Adaptive learning uses **AI and data analytics** to personalize learning materials for each student.
+> Real-world examples include:
+>
+> * **Duolingo**, which adapts based on how well you know words or grammar.
+> * **Khan Academy**, which adjusts exercises depending on your progress.
+>
+> The image shows a student-centered approach where content changes dynamically based on learner behavior.
+
+---
+
+### 📚 Slide 8: *Benchmark Universe Overview*
+
+**Script:**
+
+> Benchmark Universe is a **digital learning platform** widely used in schools.
+> It offers **eBooks, interactive lessons, and assessments** — all designed to support personalized and engaging instruction.
+>
+> The image here represents different Benchmark Universe modules — showing Assessments, Assignments, Reporting, and Licensing.
+>
+> It supports **xAPI-based specifications like CMI5**, which improve tracking and reporting in LMSs.
+> Also, Benchmark offers **BOC and PD** programs for professional development.
+
+---
+
+### 🧾 Slide 9: *Benchmark Universe Modules*
+
+**Script:**
+
+> Let’s look at its modules in detail:
+>
+> * **Assessments** – digital, auto-scored, and aligned with standards.
+> * **Assignments** – teachers can schedule and customize learning tasks.
+> * **Reporting** – real-time dashboards help track progress.
+> * **Licensing** – offered through schools and integrated with LMSs using LTI.
+>
+> The table shown here compares each module and its function, giving a clear picture of Benchmark Universe’s structure.
+
+---
+
+### 👩‍🏫 Slide 10: *BOC & PD*
+
+**Script:**
+
+> **BOC** stands for *Back Office & Corporate*. It helps manage users, permissions, and compliance tasks.
+
+Cloud bases erp central swt which integrate all data flowing to benchmark in different platform to integrate to form coreleted pic
+> **PD** means *Professional Development*, which trains teachers to use new tools effectively.
+>
+> Together, they ensure smooth operations and ongoing teacher improvement.
+>
+> The diagram here highlights both — BOC on the administrative side and PD on the learning and training side.
+
+---
+
+### 🔄 Slide 11: *Agile and Scrum Framework*
+
+**Script:**
+
+> Now, moving to project management — we use the **Agile methodology**, which emphasizes flexibility and collaboration.
+> Agile focuses on short cycles called **Sprints**, where teams build, test, and improve quickly.
+>
+> Within Agile, **Scrum** defines specific roles and events:
+>
+> * **Product Owner** – sets the vision and priorities.
+> * **Scrum Master** – removes obstacles.
+> * **Development Team** – builds the product.
+>
+> The table here shows the **Scrum events** like Sprint Planning, Daily Scrum, Review, and Retrospective — each helping continuous improvement.
+
+---
+
+### 🧩 Slide 12: *Problem Solving Techniques*
+
+**Script:**
+
+> Problem-solving is about finding the best solution efficiently.
+> The main techniques we use are:
+>
+> * **Brainstorming** – generate ideas as a group.
+> * **5W1H** – ask What, Why, When, Where, Who, and How.
+> * **Root Cause Analysis** – identify the real reason behind a problem.
+> * **Decision Tree** – visualize outcomes and choose the best path.
+>
+> The diagram in this slide visually represents how each method contributes to structured problem-solving.
+
+---
+
+### ♿ Slide 13: *Accessibility in EdTech*
+
+**Script:**
+
+> Accessibility ensures that everyone — including people with disabilities — can use digital learning platforms effectively.
+>
+> It follows the **WCAG standards** and **POUR principles**:
+>
+> * **P – Perceivable**
+> * **O – Operable**
+> * **U – Understandable**
+> * **R – Robust**
+>
+> The icons in the picture show examples like screen readers, captions, keyboard navigation, and high-contrast themes.
+>
+> Making content accessible ensures **inclusive education for all** learners.
+
+---
+
+### 🙏 Slide 14: *Thank You Slide*
+
+**Script:**
+
+> That brings us to the end of the presentation.
+> In this Sprint, we covered key EdTech standards, explored Benchmark Universe, understood Agile and Scrum, practiced structured problem solving, and ensured digital accessibility.
+>
+> Thank you for listening. I’m open to any questions or feedback.
+
+---
+
+Would you like me to create a **printable speaker notes version (Word or PDF)** with slide thumbnails and your talking points under each slide? It’ll make it easier to rehearse or present confidently.

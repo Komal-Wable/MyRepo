@@ -1,0 +1,224 @@
+FINAL DATABASE DESIGN (LOCKED)
+🧱 TOTAL TABLES: 5
+
+users
+
+courses
+
+course_students
+
+assignments
+
+submissions
+
+No groups.
+No targets.
+No course codes.
+No over-engineering.
+
+1️⃣ USERS TABLE
+Purpose
+
+Stores teachers and students.
+
+users
+-----
+id            BIGINT (PK)
+username      VARCHAR(100) UNIQUE
+password      VARCHAR(255)
+role          ENUM('TEACHER','STUDENT')
+
+Notes
+
+One table for both roles
+
+Role-based access handled via JWT
+
+2️⃣ COURSES TABLE
+Purpose
+
+Represents a course created by a teacher.
+
+courses
+-------
+id            BIGINT (PK)
+name          VARCHAR(255)
+created_by    BIGINT (FK → users.id)
+
+Relationship
+
+One Teacher → Many Courses
+
+3️⃣ COURSE_STUDENTS TABLE (ENROLLMENT)
+Purpose
+
+Maps students to courses they joined.
+
+course_students
+---------------
+id            BIGINT (PK)
+course_id     BIGINT (FK → courses.id)
+student_id    BIGINT (FK → users.id)
+
+UNIQUE (course_id, student_id)
+
+Relationship
+
+Many Students ↔ Many Courses
+
+Prevents duplicate enrollment
+
+4️⃣ ASSIGNMENTS TABLE
+Purpose
+
+Assignments created by teachers for a course.
+
+assignments
+-----------
+id                     BIGINT (PK)
+title                  VARCHAR(255)
+description            TEXT
+assignment_type        ENUM('FILE','LINK')
+instruction_path_link  VARCHAR(255)
+course_id              BIGINT (FK → courses.id)
+created_by             BIGINT (FK → users.id)
+created_at             DATETIME
+
+Relationship
+
+One Course → Many Assignments
+
+One Teacher → Many Assignments
+
+5️⃣ SUBMISSIONS TABLE
+Purpose
+
+Student submissions for assignments.
+
+submissions
+-----------
+id                   BIGINT (PK)
+assignment_id        BIGINT (FK → assignments.id)
+student_id           BIGINT (FK → users.id)
+submission_type      ENUM('FILE','LINK')
+submission_content   VARCHAR(255)
+submitted_at         DATETIME
+
+UNIQUE (assignment_id, student_id)
+
+Relationship
+
+One Student → One Submission per Assignment
+
+Duplicate submission prevented
+
+🔗 RELATIONSHIP SUMMARY (VERY IMPORTANT)
+User (TEACHER)
+   └── creates ──> Course
+                      └── has ──> Assignment
+
+User (STUDENT)
+   └── joins ──> Course (via course_students)
+                      └── views & submits ──> Assignment
+                                                  └── Submission
+
+
+
+
+
+
+
+1️⃣ USER ↔ COURSE
+Relationship
+One Teacher → Many Courses
+
+Explanation
+
+A teacher can create multiple courses
+
+Each course is created by exactly one teacher
+
+DB Mapping
+courses.created_by → users.id
+
+JPA Meaning
+Course → @ManyToOne → User (TEACHER)
+
+2️⃣ COURSE ↔ STUDENT (via COURSE_STUDENTS)
+Relationship
+Many Students ↔ Many Courses
+
+
+This is implemented using a join table.
+
+Explanation
+
+A student can join multiple courses
+
+A course can have multiple students
+
+DB Mapping
+course_students.course_id  → courses.id
+course_students.student_id → users.id
+
+Why a separate table?
+
+Avoids duplication
+
+Scalable
+
+Industry standard
+
+3️⃣ COURSE ↔ ASSIGNMENT
+Relationship
+One Course → Many Assignments
+
+Explanation
+
+Each course contains multiple assignments
+
+Each assignment belongs to exactly one course
+
+DB Mapping
+assignments.course_id → courses.id
+
+JPA Meaning
+Assignment → @ManyToOne → Course
+
+4️⃣ ASSIGNMENT ↔ SUBMISSION
+Relationship
+One Assignment → Many Submissions
+
+Explanation
+
+Multiple students submit the same assignment
+
+Each submission belongs to one assignment
+
+DB Mapping
+submissions.assignment_id → assignments.id
+
+5️⃣ STUDENT ↔ SUBMISSION
+Relationship
+One Student → Many Submissions
+
+Explanation
+
+A student can submit multiple assignments
+
+Only one submission per assignment per student
+
+DB Rule
+UNIQUE (assignment_id, student_id)
+
+
+✔ Prevents duplicate submissions
+
+📊 COMPLETE RELATIONSHIP DIAGRAM (TEXT)
+USER (TEACHER)
+   └── creates ──> COURSE
+                       └── has ──> ASSIGNMENT
+                                        └── has ──> SUBMISSION
+USER (STUDENT)
+   └── joins ──> COURSE (via COURSE_STUDENTS)
+                       └── submits ──> ASSIGNMENT

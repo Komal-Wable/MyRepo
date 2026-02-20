@@ -1,0 +1,163 @@
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50) UNIQUE NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL,
+  password_hash VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE threads (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  content TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+
+CREATE TABLE posts (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  thread_id INT NOT NULL,
+  user_id INT NOT NULL,
+  content TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (thread_id) REFERENCES threads(id),
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+
+CREATE TABLE comments (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  post_id INT NOT NULL,
+  user_id INT NOT NULL,
+  content TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (post_id) REFERENCES posts(id),
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+
+CREATE TABLE attachments (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  post_id INT,
+  comment_id INT,
+  file_url VARCHAR(255),
+  FOREIGN KEY (post_id) REFERENCES posts(id),
+  FOREIGN KEY (comment_id) REFERENCES comments(id)
+);
+
+
+
+User 
+  ↓ creates
+Thread 
+  ↓ has many
+Post 
+  ↓ has many
+Comment
+
+
+======================
+USERS
++ id (PK)
++ username
++ email
++ password_hash
++ created_at
+       | 1
+       |──────────────────────────┐
+       |                          |
+       ▼                          |
+THREADS                           |
++ id (PK)                         |
++ user_id (FK)                    |
++ title                           | many
++ content                         |
++ created_at                      |
+       | 1                        |
+       |──────────────────────────┐
+       |                          |
+       ▼                          |
+POSTS                             |
++ id (PK)                         |
++ thread_id (FK)                  |
++ user_id (FK)                    |
++ content                         | many
++ created_at                      |
+       | 1                        |
+       |──────────────────────────┐
+       |                          |
+       ▼                          |
+COMMENTS                          |
++ id (PK)                         |
++ post_id (FK)                    |
++ user_id (FK)                    |
++ content                         |
++ created_at                      |
+       |
+       | many
+       ▼
+ATTACHMENTS
++ id (PK)
++ post_id (FK) NULL
++ comment_id (FK) NULL
++ file_url
+
+==============
+
+
+┌───────────┐         1        ┌────────────┐        1        ┌──────────────┐
+│   users    │──────────────────│   threads   │─────────────────│     posts     │
+└─────┬──────┘    (user_id)     └──────┬─────┘   (thread_id)   └──────┬───────┘
+      │                                  │                           │
+      │                                  │                           │
+      │                                  │   many                    │   many
+      │                                  │                           │
+      │                                  ▼                           ▼
+      │                              ┌────────────┐             ┌─────────────┐
+      │                              │  comments  │◄────────────│ attachments │
+      │                              └─────┬──────┘   (post_id) └─────────────┘
+      │                           (post_id│comment_id)
+      │
+      ▼
+ (user creates posts & comments)
+
+
+
+
+===================================
+
+
+src/
+ ├── components/
+ │    ├── Navbar.js
+ │    ├── ThreadCard.js
+ │    ├── PostCard.js
+ │    ├── CommentCard.js
+ │    ├── AttachmentPreview.js
+ │
+ ├── pages/
+ │    ├── Home.js
+ │    ├── CreateThread.js
+ │    ├── ThreadPage.js     ← shows thread + posts + comments
+ │    ├── Login.js
+ │    ├── Register.js
+ │
+ ├── api/
+ │    ├── threads.js
+ │    ├── posts.js
+ │    ├── comments.js
+ │    ├── auth.js
+ │
+ ├── styles/
+ │    ├── Home.css
+ │    ├── Thread.css
+ │    ├── CreateThread.css
+ │
+ └── App.js
+
+
+
+

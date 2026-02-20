@@ -1,0 +1,138 @@
+Teacher Side Flow
+
+Register 
+Login
+ Create Course
+ Create Assignment
+ Upload Instructions
+ Delete Assignment (optional)
+ Delete Course (optional)
+
+1)POST /api/auth/login
+
+
+{
+  "email": "teacher1@gmail.com",
+  "password": "teacher1"
+}
+
+
+2)CREATE COURSE (Teacher)
+
+POST /api/teacher/courses
+
+{
+  "title": "Spring Boot 2",
+  "description": "Backend Development spring sequrity"
+}
+
+Teacher is auto-identified from JWT
+
+
+
+3)CREATE ASSIGNMENT
+POST /api/teacher/assignments
+
+{
+  "title": "Hibernate Mapping",
+  "description": "Entity relationships",
+  "courseId": 1,
+  "assignmentType": "FILE",
+  "dueDate": "2026-01-25"
+}
+
+assignmentType:
+
+FILE → student uploads file
+
+LINK → student submits URL
+
+
+4)UPLOAD ASSIGNMENT INSTRUCTION FILE
+POST /api/teacher/assignments/{assignmentId}/instruction
+
+
+6)DELETE ASSIGNMENT (SOFT DELETE)
+
+DELETE /api/teacher/assignments/{assignmentId}
+
+
+
+7)DELETE COURSE (SOFT DELETE + CASCADE)
+DELETE /api/teacher/courses/{courseId}
+
+
+
+
+
+Student Side API Flow
+
+
+
+Register
+Login
+View Courses
+Enroll Course
+View Assignments
+Download Instructions
+Submit Assignment (LINK / FILE)
+
+
+1)STUDENT REGISTRATION
+
+POST /api/auth/register
+
+{
+  "name": "Student Two",
+  "email": "student2@gmail.com",
+  "password": "student2",
+  "role": "ROLE_STUDENT"
+}
+
+
+2)STUDENT LOGIN
+POST /api/auth/login
+
+{
+  "email": "student1@gmail.com",
+  "password": "student1"
+}
+
+3)VIEW AVAILABLE COURSES
+
+GET /api/student/courses
+
+
+4)ENROLL IN COURSE
+
+POST /api/student/enrollments
+
+
+5)VIEW ASSIGNMENTS OF ENROLLED COURSES
+GET /api/student/assignments
+
+
+6)DOWNLOAD ASSIGNMENT INSTRUCTION FILE
+
+GET /api/student/assignments/{assignmentId}/instruction
+
+7)SUBMIT ASSIGNMENT (LINK TYPE)
+
+POST /api/student/submissions
+
+
+{
+  "assignmentId": 2,
+  "submissionType": "LINK",
+  "submissionContent": "https://github.com/student1/springboot-project"
+}
+
+
+
+8)SUBMIT ASSIGNMENT (FILE TYPE)
+
+POST /api/student/submissions
+
+assignmentId = 1
+submissionType = FILE
+file = solution.zip

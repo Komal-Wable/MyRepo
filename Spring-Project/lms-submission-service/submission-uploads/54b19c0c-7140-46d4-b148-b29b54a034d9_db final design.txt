@@ -1,0 +1,121 @@
+TOTAL TABLES: 6
+
+(Optimal for 2-day project, not over-complex)
+
+No	Table	Purpose
+1️⃣	users	Teachers & students
+2️⃣	groups	Student groups
+3️⃣	group_members	Student–Group mapping
+4️⃣	assignments	Assignment details
+5️⃣	assignment_targets	Assignment visibility
+6️⃣	submissions	Student submissions
+1️⃣ USERS
+users
+- id (PK)
+- username
+- password
+- role (TEACHER / STUDENT)
+
+Relationships
+
+One Teacher → many Assignments
+
+One Student → many Submissions
+
+2️⃣ GROUPS
+groups
+- id (PK)
+- name
+- created_by (FK → users.id)
+
+Meaning
+
+Groups are manually created by teachers
+
+Represents batch / team / project group
+
+3️⃣ GROUP_MEMBERS (Option B)
+group_members
+- group_id (FK → groups.id)
+- student_id (FK → users.id)
+
+Relationship
+
+Many-to-Many
+
+One group → many students
+
+One student → many groups
+
+✔ Clean
+✔ Normalized
+✔ Easy to explain
+
+4️⃣ ASSIGNMENTS
+assignments
+- id (PK)
+- title
+- description
+- assignment_type (FILE / LINK)
+- instruction_path_or_link
+- created_by (FK → users.id)
+- created_at
+
+Notes
+
+FILE → instruction_path_or_link = file path
+
+LINK → instruction_path_or_link = URL
+
+5️⃣ ASSIGNMENT_TARGETS ⭐ (KEY TABLE)
+assignment_targets
+- id (PK)
+- assignment_id (FK → assignments.id)
+- target_type (ALL / GROUP / STUDENT)
+- target_id (nullable)
+
+How scope works
+target_type	target_id	Meaning
+ALL	NULL	Visible to all students
+GROUP	group_id	Visible to students in that group
+STUDENT	student_id	Visible to specific student
+
+👉 One table replaces multiple mapping tables
+
+6️⃣ SUBMISSIONS
+submissions
+- id (PK)
+- assignment_id (FK → assignments.id)
+- student_id (FK → users.id)
+- submission_type (FILE / LINK)
+- submission_content (file path or URL)
+- submitted_at
+
+
+✔ No marks
+✔ No evaluation
+✔ Only submission tracking
+
+🔗 RELATIONSHIP SUMMARY (SLIDE-FRIENDLY)
+From	To	Relationship
+User (Teacher)	Assignment	One-to-Many
+User (Student)	Submission	One-to-Many
+Assignment	Submission	One-to-Many
+Group	GroupMembers	One-to-Many
+User (Student)	GroupMembers	One-to-Many
+Assignment	AssignmentTargets	One-to-Many
+📐 ER DIAGRAM (TEXT – PERFECT FOR PRESENTATION)
+USERS (Teacher) 1 ───── * ASSIGNMENTS
+                            |
+                            | 1
+                            |
+                            * ASSIGNMENT_TARGETS
+                            |   (ALL / GROUP / STUDENT)
+                            |
+GROUPS 1 ───── * GROUP_MEMBERS * ───── 1 USERS (Student)
+
+USERS (Student) 1 ───── * SUBMISSIONS * ───── 1 ASSIGNMENTS
+
+🧠 HOW TO EXPLAIN IN PRESENTATION (SCRIPT)
+
+“Teachers create file or link-based assignments and define their visibility as all students, specific groups, or individual students. Groups are manually created and managed by teachers. Assignment visibility is handled using a unified assignment_targets table, keeping the design simple and scalable.”

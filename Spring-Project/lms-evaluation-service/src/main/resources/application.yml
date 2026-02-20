@@ -1,0 +1,39 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: lms-evaluation-service
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/lms_evaluation
+    username: root
+    password: komal123
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    listener:
+      concurrency: 1
+    consumer:
+      group-id: evaluation-group
+      auto-offset-reset: earliest
+
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+
+      properties:
+        spring.json.value.default.type: com.example.events.SubmissionCreatedEvent
+        spring.json.trusted.packages: "com.example.*"
+
+file:
+  upload-dir: evaluation-scorecards
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka

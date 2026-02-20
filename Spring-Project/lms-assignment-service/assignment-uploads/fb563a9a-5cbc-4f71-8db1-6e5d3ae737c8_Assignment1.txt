@@ -1,0 +1,27 @@
+Problem Statement
+
+Create a Spring Boot REST API for managing students.
+
+📂 Submission Type
+
+FILE
+
+📑 Instructions
+
+Create a Spring Boot application.
+
+Implement CRUD APIs for Student entity.
+
+Use Spring Data JPA and MySQL/H2.
+
+Validate input using @Valid.
+
+Handle exceptions using Global Exception Handler.
+
+Upload the ZIP file containing:
+
+Source code
+
+README.md (steps to run)
+
+Database schema (optional)

@@ -1,0 +1,67 @@
+spring:
+  application:
+    name: lms-api-gateway
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials
+
+      globalcors:
+          corsConfigurations:
+            '[/**]':
+              allowedOrigins:
+                - "http://localhost:5173"
+              allowedMethods:
+                - GET
+                - POST
+                - PUT
+                - DELETE
+                - OPTIONS
+              allowedHeaders: "*"
+              allowCredentials: true
+      routes:
+
+        - id: auth-service
+          uri: lb://LMS-AUTH-SERVICE
+          predicates:
+            - Path=/api/auth/**,/api/admin/**,/api/teacher/dashboard**,/api/internal/users/**,/api/student/dashboard**
+
+        - id: submission-service
+          uri: lb://LMS-SUBMISSION-SERVICE
+          predicates:
+            - Path=/api/student/submissions/**,/api/teacher/submissions/**,/api/student/submissions/status,/api/internal/submissions/**
+        # ⭐ COURSE ROUTES (PUT ABOVE ASSIGNMENT)
+#        - id: course-service
+#          uri: lb://LMS-COURSE-SERVICE
+#          predicates:
+#            - Path=/api/student/**,/api/teacher/courses/**,/api/internal/**
+        - id: course-service
+          uri: lb://LMS-COURSE-SERVICE
+          predicates:
+            - Path=/api/student/courses/**,/api/teacher/courses/**,/api/internal/courses/**
+
+
+        - id: assignment-service
+          uri: lb://LMS-ASSIGNMENT-SERVICE
+          predicates:
+            - Path=/api/teacher/assignments/**,/api/student/assignments/**,/api/internal/assignments/**
+
+
+#        - id: submission-service
+#          uri: lb://LMS-SUBMISSION-SERVICE
+#          predicates:
+#            - Path=/api/student/submissions/**
+        - id: lms-communication-service
+          uri: lb://LMS-COMMUNICATION-SERVICE
+          predicates:
+            - Path=/api/chat/**,/api/messages/**,/api/internal/users/**
+
+
+
+        - id: evaluation-service
+          uri: lb://LMS-EVALUATION-SERVICE
+          predicates:
+            - Path=/api/teacher/evaluations/**,/api/student/evaluations/**,/api/internal/evaluations/**
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
